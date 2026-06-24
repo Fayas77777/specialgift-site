@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>For Afrin Fathima 🎂</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&family=Lato:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--red:#8B1A1A;--red2:#6B0F0F;--gold:#C8960C;--gold2:#E8B020;--gold3:#F5D070;}
+html,body{width:100%;height:100%;overflow:hidden;background:#1a0505;}
+
+/* ── LOCK SCREEN ── */
+#lock-screen{
+  width:100vw;height:100vh;
+  background:radial-gradient(ellipse at 50% 40%,#6B0F0F 0%,#3a0505 55%,#1a0202 100%);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:22px;position:relative;overflow:hidden;
+}
+.particle{position:absolute;border-radius:50%;background:var(--gold2);opacity:0;animation:pfloat linear infinite;pointer-events:none;}
+@keyframes pfloat{0%{opacity:0;transform:translateY(100vh) scale(0);}10%{opacity:.7;}90%{opacity:.3;}100%{opacity:0;transform:translateY(-10vh) scale(1.4);}}
+
+/* polaroid */
+.polaroid{background:#fff;padding:14px 14px 42px;transform:rotate(-3deg);position:relative;width:168px;box-shadow:4px 6px 24px rgba(0,0,0,.65),0 0 0 1px rgba(200,150,12,.25);}
+.pol-img{width:140px;height:130px;background:linear-gradient(135deg,#4a1010,#8B1A1A 40%,#c23030 70%,#8B1A1A);display:flex;align-items:center;justify-content:center;}
+.cw{display:flex;gap:9px;align-items:flex-end;}
+.cb{border-radius:2px;background:linear-gradient(to right,#e8d0a0,#c8a060,#e8d0a0);}
+.fl{width:8px;height:13px;border-radius:50% 50% 30% 30%;background:linear-gradient(to top,#ff9900,#ffdd00,#fff8cc);position:absolute;top:-14px;left:1px;transform-origin:bottom;animation:flicker .4s ease-in-out infinite alternate;}
+@keyframes flicker{0%{transform:scaleX(1) scaleY(1) rotate(-2deg);}100%{transform:scaleX(.85) scaleY(1.1) rotate(3deg);}}
+.pol-cap{position:absolute;bottom:7px;left:0;right:0;text-align:center;font-family:'Dancing Script',cursive;color:#8B1A1A;font-size:12px;line-height:1.3;}
+
+.lock-title{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.55rem;text-align:center;letter-spacing:1px;text-shadow:0 0 30px rgba(232,176,32,.35);}
+.lock-sub{font-family:'Lato',sans-serif;font-weight:300;color:rgba(232,176,32,.65);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;text-align:center;}
+
+.pin-display{display:flex;gap:9px;}
+.pin-dot{width:13px;height:13px;border-radius:50%;border:2px solid var(--gold);background:transparent;transition:background .2s,transform .15s;}
+.pin-dot.filled{background:var(--gold2);transform:scale(1.2);}
+
+.keypad{display:grid;grid-template-columns:repeat(3,60px);gap:9px;}
+.key{width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(200,150,12,.45);background:rgba(139,26,26,.4);color:var(--gold2);font-family:'Lato',sans-serif;font-size:1.15rem;font-weight:300;cursor:pointer;transition:background .15s,transform .1s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;user-select:none;}
+.key .sub{font-size:.42rem;letter-spacing:2px;color:rgba(232,176,32,.45);}
+.key:hover{background:rgba(200,150,12,.22);box-shadow:0 0 12px rgba(200,150,12,.28);}
+.key:active{transform:scale(.91);}
+.key.empty{opacity:0;pointer-events:none;}
+.error-shake{animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-6px);}80%{transform:translateX(6px);}}
+
+/* ── DATE PAGE (after pin) ── */
+#date-screen{
+  position:fixed;inset:0;
+  background:radial-gradient(ellipse at 50% 45%,#7a1010 0%,#3a0505 55%,#180202 100%);
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  z-index:10;overflow:hidden;
+}
+
+/* big date display */
+.date-display{
+  font-family:'Lato',sans-serif;font-weight:300;
+  color:var(--gold2);font-size:clamp(2.8rem,8vw,5.5rem);
+  letter-spacing:8px;text-align:center;
+  text-shadow:0 0 40px rgba(232,176,32,.45);
+  animation:dateIn 1.2s ease both;
+  position:relative;z-index:2;
+}
+@keyframes dateIn{from{opacity:0;transform:scale(.8);}to{opacity:1;transform:scale(1);}}
+.date-label{font-family:'Lato',sans-serif;font-weight:300;color:rgba(232,176,32,.5);font-size:.7rem;letter-spacing:6px;text-transform:uppercase;text-align:center;margin-bottom:10px;animation:fadeUp 1s .3s both;}
+
+/* quote carousel */
+.quote-box{
+  position:relative;z-index:2;
+  max-width:560px;width:90%;margin-top:40px;
+  text-align:center;
+  animation:fadeUp 1s .6s both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+.quote-mark{font-family:'Playfair Display',serif;color:var(--gold);font-size:3rem;line-height:.5;opacity:.5;}
+.quote-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  color:rgba(255,235,200,.9);font-size:clamp(.9rem,2.2vw,1.12rem);
+  line-height:1.8;margin:8px 0;
+  min-height:80px;
+  transition:opacity .5s;
+}
+.quote-author{font-family:'Lato',sans-serif;font-weight:300;color:var(--gold);font-size:.75rem;letter-spacing:3px;text-transform:uppercase;margin-top:6px;}
+.quote-dots{display:flex;gap:8px;justify-content:center;margin-top:18px;}
+.qdot{width:6px;height:6px;border-radius:50%;background:rgba(200,150,12,.3);transition:background .3s,transform .3s;cursor:pointer;}
+.qdot.active{background:var(--gold2);transform:scale(1.4);}
+
+/* enter btn */
+.enter-btn{
+  margin-top:38px;z-index:2;
+  font-family:'Lato',sans-serif;font-weight:300;
+  color:var(--gold2);font-size:.78rem;letter-spacing:4px;text-transform:uppercase;
+  border:1px solid rgba(200,150,12,.4);padding:12px 36px;border-radius:40px;
+  cursor:pointer;background:rgba(139,26,26,.3);
+  transition:background .2s,box-shadow .2s;
+  animation:fadeUp 1s 1s both;
+}
+.enter-btn:hover{background:rgba(200,150,12,.2);box-shadow:0 0 20px rgba(200,150,12,.3);}
+
+/* divider line */
+.gold-line{width:120px;height:1px;background:linear-gradient(to right,transparent,var(--gold2),transparent);margin:18px auto 0;z-index:2;animation:fadeUp 1s .5s both;}
+
+/* floating petals bg */
+.bg-petal{position:fixed;pointer-events:none;z-index:1;opacity:0;font-size:1rem;animation:petalFall linear infinite;}
+@keyframes petalFall{0%{opacity:0;transform:translateY(-40px) rotate(0deg);}10%{opacity:.5;}90%{opacity:.2;}100%{opacity:0;transform:translateY(101vh) rotate(400deg);}}
+
+/* ── UNLOCK ANIM ── */
+#unlock-anim{position:fixed;inset:0;background:radial-gradient(ellipse,#8B1A1A,#1a0202);display:none;align-items:center;justify-content:center;z-index:30;flex-direction:column;gap:14px;}
+.unlock-ring{width:96px;height:96px;border-radius:50%;border:3px solid var(--gold2);display:flex;align-items:center;justify-content:center;font-size:2.4rem;box-shadow:0 0 40px rgba(232,176,32,.55);animation:ringPop .6s ease forwards;}
+@keyframes ringPop{0%{transform:scale(0);opacity:0;}60%{transform:scale(1.15);}100%{transform:scale(1);opacity:1;}}
+.unlock-text{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.2rem;animation:fadeUp .8s .4s both;}
+.conf{position:fixed;border-radius:2px;animation:confFall 2s ease forwards;pointer-events:none;z-index:35;}
+@keyframes confFall{0%{transform:translateY(-20px) rotate(0);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+
+/* ── LETTER SCREEN ── */
+#letter-screen{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 30%,#6B0F0F,#3a0505 50%,#1a0202);display:none;overflow-y:auto;z-index:20;padding:40px 20px 80px;}
+.letter-wrap{max-width:640px;margin:0 auto;}
+.letter-card{background:linear-gradient(160deg,#2a0808,#1e0505);border:1px solid rgba(200,150,12,.35);border-radius:16px;padding:46px 42px;box-shadow:0 30px 80px rgba(0,0,0,.7),inset 0 1px 0 rgba(200,150,12,.2);position:relative;overflow:hidden;animation:cardReveal .9s ease both;}
+@keyframes cardReveal{from{opacity:0;transform:translateY(40px) scale(.97);}to{opacity:1;transform:none;}}
+.letter-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(to right,transparent,var(--gold2),transparent);}
+.corner{position:absolute;width:46px;height:46px;opacity:.4;}
+.tl{top:12px;left:12px;}.tr{top:12px;right:12px;transform:scaleX(-1);}.bl{bottom:12px;left:12px;transform:scaleY(-1);}.br{bottom:12px;right:12px;transform:scale(-1,-1);}
+.letter-date{font-family:'Lato',sans-serif;font-weight:300;color:rgba(200,150,12,.6);font-size:.72rem;letter-spacing:3px;text-align:center;margin-bottom:26px;text-transform:uppercase;}
+.letter-to{font-family:'Dancing Script',cursive;color:var(--gold2);font-size:1.75rem;text-align:center;margin-bottom:22px;text-shadow:0 0 20px rgba(232,176,32,.3);}
+.divider{text-align:center;color:rgba(200,150,12,.5);font-size:1.1rem;margin:0 0 26px;letter-spacing:8px;}
+.letter-body{font-family:'Playfair Display',serif;color:rgba(255,235,200,.88);font-size:1rem;line-height:1.95;text-align:justify;}
+.letter-body p{margin-bottom:16px;}
+.hi{color:var(--gold2);font-style:italic;}
+.letter-sign{margin-top:34px;text-align:right;font-family:'Dancing Script',cursive;color:var(--gold2);font-size:1.35rem;}
+.letter-hearts{text-align:center;margin-top:28px;font-size:1.3rem;letter-spacing:6px;color:#A52020;}
+</style>
+</head>
+<body>
+
+<!-- ══ LOCK SCREEN ══ -->
+<div id="lock-screen">
+  <div class="polaroid">
+    <div class="pol-img">
+      <div class="cw">
+        <div style="position:relative;width:9px"><div class="fl" style="animation-delay:.0s"></div><div class="cb" style="height:36px;width:9px"></div></div>
+        <div style="position:relative;width:9px"><div class="fl" style="animation-delay:.1s"></div><div class="cb" style="height:50px;width:9px"></div></div>
+        <div style="position:relative;width:9px"><div class="fl" style="animation-delay:.2s"></div><div class="cb" style="height:43px;width:9px"></div></div>
+        <div style="position:relative;width:9px"><div class="fl" style="animation-delay:.05s"></div><div class="cb" style="height:56px;width:9px"></div></div>
+        <div style="position:relative;width:9px"><div class="fl" style="animation-delay:.15s"></div><div class="cb" style="height:39px;width:9px"></div></div>
+      </div>
+    </div>
+    <div class="pol-cap">Happy Birthday! ✦</div>
+  </div>
+
+  <div style="text-align:center">
+    <div class="lock-title">✦ A Secret Awaits ✦</div>
+    <div class="lock-sub" style="margin-top:6px">Enter the password to reveal</div>
+  </div>
+
+  <div class="pin-display" id="pinDots"></div>
+
+  <div class="keypad" id="keypad">
+    <div class="key" data-n="1">1</div>
+    <div class="key" data-n="2">2<span class="sub">ABC</span></div>
+    <div class="key" data-n="3">3<span class="sub">DEF</span></div>
+    <div class="key" data-n="4">4<span class="sub">GHI</span></div>
+    <div class="key" data-n="5">5<span class="sub">JKL</span></div>
+    <div class="key" data-n="6">6<span class="sub">MNO</span></div>
+    <div class="key" data-n="7">7<span class="sub">PQRS</span></div>
+    <div class="key" data-n="8">8<span class="sub">TUV</span></div>
+    <div class="key" data-n="9">9<span class="sub">WXYZ</span></div>
+    <div class="key empty"></div>
+    <div class="key" data-n="0">0</div>
+    <div class="key" id="delKey">⌫</div>
+  </div>
+  <div style="font-family:'Lato',sans-serif;font-weight:300;color:rgba(200,150,12,.38);font-size:.68rem;letter-spacing:2px">8-DIGIT PIN</div>
+</div>
+
+<!-- ══ UNLOCK ANIM ══ -->
+<div id="unlock-anim">
+  <div class="unlock-ring">🎂</div>
+  <div class="unlock-text">Unlocking your surprise…</div>
+</div>
+
+<!-- ══ DATE / QUOTE SCREEN ══ -->
+<div id="date-screen">
+  <div class="date-label">Today is</div>
+  <div class="date-display" id="dateDisplay"></div>
+  <div class="gold-line"></div>
+
+  <div class="quote-box">
+    <div class="quote-mark">"</div>
+    <div class="quote-text" id="quoteText"></div>
+    <div class="quote-author" id="quoteAuthor"></div>
+    <div class="quote-dots" id="qdots"></div>
+  </div>
+
+  <button class="enter-btn" id="enterLetterBtn">Open Your Letter ✦</button>
+</div>
+
+<!-- ══ LETTER SCREEN ══ -->
+<div id="letter-screen">
+  <div class="letter-wrap">
+    <div class="letter-card">
+      <div class="corner tl"><svg viewBox="0 0 46 46"><path d="M4 42L4 4L42 4" stroke="#C8960C" stroke-width="1.5" fill="none"/><circle cx="4" cy="4" r="3" fill="#C8960C"/></svg></div>
+      <div class="corner tr"><svg viewBox="0 0 46 46"><path d="M4 42L4 4L42 4" stroke="#C8960C" stroke-width="1.5" fill="none"/><circle cx="4" cy="4" r="3" fill="#C8960C"/></svg></div>
+      <div class="corner bl"><svg viewBox="0 0 46 46"><path d="M4 42L4 4L42 4" stroke="#C8960C" stroke-width="1.5" fill="none"/><circle cx="4" cy="4" r="3" fill="#C8960C"/></svg></div>
+      <div class="corner br"><svg viewBox="0 0 46 46"><path d="M4 42L4 4L42 4" stroke="#C8960C" stroke-width="1.5" fill="none"/><circle cx="4" cy="4" r="3" fill="#C8960C"/></svg></div>
+      <div class="letter-date" id="letterDate"></div>
+      <div class="letter-to">My Dearest Sister Fathima,</div>
+      <div class="divider">✦ ✦ ✦</div>
+      <div class="letter-body">
+        <p>Today is not just another day on the calendar — it is the day the universe decided to gift this world with someone truly extraordinary. <span class="hi">You, my dear sister.</span></p>
+        <p>Growing up with you has been one of the greatest blessings of my life. You have always been more than just a sister — you are my best friend, my safe place, and my biggest inspiration. There is no one else in this world quite like you, Fathima.</p>
+        <p>I want you to know that your laughter is one of the most beautiful sounds in the world to me. Your strength — the quiet kind, the kind that shows up even on the hardest days — is something I admire more than you will ever know. And your heart, <span class="hi">oh, your heart</span> — it is rare and precious and the world is a warmer place because of it.</p>
+        <p>On this birthday, I hope you feel every bit of the love that surrounds you. I hope you wake up knowing that your presence in this world — and in my life — matters more than words can say. I hope the year ahead brings you everything you have been quietly wishing for — joy without condition, peace without effort, and love that finds you in all the ways you deserve.</p>
+        <p>Thank you for being my sister. Thank you for every memory, every laugh, every moment we have shared. <span class="hi">You are someone truly worth celebrating — today, and every single day.</span></p>
+        <p>Here's to you, Fathima. May this year be the most beautiful chapter of your life yet. I love you more than you know. 🌹</p>
+      </div>
+      <div class="letter-sign">With all my love, always,<br/><span style="font-size:1.75rem">✦ Your Sibling ✦</span></div>
+      <div class="letter-hearts">♥ ♥ ♥</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PIN='07072007';
+const MAX=8;
+let entered='';
+
+/* pin dots */
+const dotsEl=document.getElementById('pinDots');
+for(let i=0;i<MAX;i++){const d=document.createElement('div');d.className='pin-dot';d.id='dot'+i;dotsEl.appendChild(d);}
+
+/* particles */
+const ls=document.getElementById('lock-screen');
+for(let i=0;i<22;i++){const p=document.createElement('div');p.className='particle';const sz=Math.random()*4+2;p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;animation-duration:${7+Math.random()*9}s;animation-delay:${Math.random()*8}s;`;ls.appendChild(p);}
+
+function updateDots(){for(let i=0;i<MAX;i++)document.getElementById('dot'+i).classList.toggle('filled',i<entered.length);}
+
+function wrongPin(){
+  dotsEl.classList.add('error-shake');
+  for(let i=0;i<MAX;i++)document.getElementById('dot'+i).style.borderColor='#e24b4b';
+  setTimeout(()=>{dotsEl.classList.remove('error-shake');for(let i=0;i<MAX;i++)document.getElementById('dot'+i).style.borderColor='';entered='';updateDots();},600);
+}
+
+/* confetti */
+function launchConfetti(){
+  const cols=['#C8960C','#E8B020','#8B1A1A','#F5D070','#fff','#ff6b6b'];
+  for(let i=0;i<80;i++){const c=document.createElement('div');c.className='conf';c.style.cssText=`left:${Math.random()*100}vw;top:${-20-Math.random()*40}px;background:${cols[Math.floor(Math.random()*cols.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-delay:${Math.random()*1.4}s;animation-duration:${2+Math.random()}s;`;document.body.appendChild(c);setTimeout(()=>c.remove(),3500);}
+}
+
+/* petals */
+function launchPetals(parent){
+  setInterval(()=>{const p=document.createElement('div');p.className='bg-petal';p.textContent=['🌹','🌸','✿','❀'][Math.floor(Math.random()*4)];p.style.cssText=`left:${Math.random()*100}vw;font-size:${.8+Math.random()*.7}rem;animation-duration:${9+Math.random()*6}s;animation-delay:${Math.random()*2}s;`;parent.appendChild(p);setTimeout(()=>p.remove(),18000);},1400);
+}
+
+/* quotes */
+const quotes=[
+  {t:"She is clothed in strength and dignity, and she laughs without fear of the future.",a:"Proverbs 31:25"},
+  {t:"The most beautiful thing a woman can wear is confidence.",a:"Blake Lively"},
+  {t:"You are enough. A thousand times enough.",a:"Unknown"},
+  {t:"She remembered who she was and the game changed.",a:"Lalah Delia"},
+  {t:"Beauty begins the moment you decide to be yourself.",a:"Coco Chanel"},
+  {t:"You are braver than you believe, stronger than you seem, and smarter than you think.",a:"A.A. Milne"},
+];
+let qIdx=0;
+
+function buildQuotes(){
+  const dd=document.getElementById('qdots');
+  quotes.forEach((_,i)=>{const d=document.createElement('div');d.className='qdot'+(i===0?' active':'');d.onclick=()=>goQ(i);dd.appendChild(d);});
+  showQ(0);
+}
+
+function showQ(i){
+  const qt=document.getElementById('quoteText');
+  const qa=document.getElementById('quoteAuthor');
+  qt.style.opacity='0';
+  setTimeout(()=>{qt.textContent=quotes[i].t;qa.textContent='— '+quotes[i].a;qt.style.opacity='1';},300);
+  document.querySelectorAll('.qdot').forEach((d,j)=>d.classList.toggle('active',j===i));
+  qIdx=i;
+}
+function goQ(i){showQ(i);}
+
+/* date display */
+function setDateDisplay(){
+  const n=new Date();
+  const dd=String(n.getDate()).padStart(2,'0');
+  const mm=String(n.getMonth()+1).padStart(2,'0');
+  const yy=String(n.getFullYear());
+  document.getElementById('dateDisplay').textContent=`${dd} / ${mm} / ${yy}`;
+  const opts={year:'numeric',month:'long',day:'numeric'};
+  document.getElementById('letterDate').textContent=n.toLocaleDateString('en-US',opts);
+}
+
+/* show date screen */
+function showDateScreen(){
+  setDateDisplay();
+  buildQuotes();
+  const ds=document.getElementById('date-screen');
+  ds.style.display='flex';
+  launchPetals(ds);
+  // auto-cycle quotes
+  setInterval(()=>goQ((qIdx+1)%quotes.length),4500);
+}
+
+/* enter letter btn */
+document.getElementById('enterLetterBtn').onclick=()=>{
+  const ds=document.getElementById('date-screen');
+  ds.style.opacity='0';ds.style.transition='opacity .6s';
+  setTimeout(()=>{ds.style.display='none';const letter=document.getElementById('letter-screen');letter.style.display='block';launchPetals(letter);},600);
+};
+
+/* correct pin */
+function correctPin(){
+  document.getElementById('lock-screen').style.cssText='opacity:0;transition:opacity .5s;pointer-events:none;';
+  const ua=document.getElementById('unlock-anim');
+  ua.style.display='flex';
+  launchConfetti();
+  setTimeout(()=>{ua.style.display='none';showDateScreen();},2200);
+}
+
+/* keypad */
+document.getElementById('keypad').addEventListener('click',e=>{
+  const k=e.target.closest('.key');if(!k)return;
+  if(k.id==='delKey'){entered=entered.slice(0,-1);updateDots();return;}
+  const n=k.dataset.n;if(n===undefined||entered.length>=MAX)return;
+  entered+=n;updateDots();
+  if(entered.length===MAX){setTimeout(()=>{if(entered===PIN)correctPin();else wrongPin();},150);}
+});
+</script>
+</body>
+</html>
